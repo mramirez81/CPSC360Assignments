@@ -1,0 +1,3 @@
+This sentence has 2 word(s) with the letter E .
+The longest word with the letter E is: everyone
+The longest word with the letter E has 8 character(s)
