@@ -30,9 +30,5 @@ class Book{
 		bool isCheckedOut();
 		void borrowBook();
 		void returnBook();
-		void operator = (const Book &right);
-		Book operator + (const Book &right);
-		Book operator - ( Book &right);
-		
 };
 #endif

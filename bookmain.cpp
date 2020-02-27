@@ -1,59 +1,41 @@
 #include <iostream>
-
 #include "book.h"
+#include <string>
+
 
 int main(){
-	Book b1;
-	b1.setTitle("C++ for dummies");
-	b1.setbookID(2);
-	std::cout << "Title: " << b1.getTitle() << std::endl;
-	std::cout << "Book ID: " << b1.getbookID() << std::endl;
-	if (b1.isCheckedOut()){
-		std::cout << "Book is currently checked out" << std::endl;
-	}else {
-		std::cout << "Book is curently not checked out" << std::endl;
-	}
-	std::cout << std::endl;
-	b1.borrowBook();
-	std::cout << "Title: " << b1.getTitle() << std::endl;
-	std::cout << "Book ID: " << b1.getbookID() << std::endl;
-	if (b1.isCheckedOut()){
-		std::cout << "Book is currently checked out" << std::endl;
-	}else {
-		std::cout << "Book is curently not checked out" << std::endl;
-	}
-	std::cout << std::endl;
+	Book bookLibrary[5];
+	std::string userTitle;
 	
-	
-	Book b2( 23, "Strange Case of Dr Jekyll and Mr Hyde", true);
-	std::cout << "Title: " << b2.getTitle() << std::endl;
-	std::cout<<"Book ID: "<<b2.getbookID()<<std::endl;
-	if (b2.isCheckedOut()){
-		std::cout<<"Book is currently checked out"<<std::endl;
-	}else {
-		std::cout<<"Book is curently not checked out"<<std::endl;
+	for( int i = 0; i < 5; i++){
+		std::cout <<"Please enter a title: ";
+		std::getline(std::cin, userTitle);
+		bookLibrary[i].setTitle(userTitle);
 	}
-	std::cout<<std::endl;
-	b2.returnBook();
-	std::cout<<"Title: "<<b2.getTitle()<<std::endl;
-	std::cout<<"Book ID: "<<b2.getbookID()<<std::endl;
-	if (b2.isCheckedOut()){
-		std::cout<<"Book is currently checked out"<<std::endl;
-	}else {
-		std::cout<<"Book is curently not checked out"<<std::endl;
-	}
-	std::cout<<std::endl;
 	
+	bookLibrary[2] = bookLibrary[4];
+	bookLibrary[3] = bookLibrary[1] + bookLibrary[4];
+	bookLibrary[0] = bookLibrary[2] - bookLibrary[1];
 	
-	Book b3(b1);
-	std::cout<<"Title: "<<b3.getTitle()<<std::endl;
-	std::cout<<"Book ID: "<<b3.getbookID()<<std::endl;
-	if (b3.isCheckedOut()){
-		std::cout<<"Book is currently checked out"<<std::endl;
-	}else {
-		std::cout<<"Book is curently not checked out"<<std::endl;
-	}
-	std::cout<<std::endl;
+	std::cout << "Book 1" << std::endl;
+	std::cout << "Title: " << bookLibrary[0].getTitle() << std::endl;
+	std::cout << "Book ID: " << bookLibrary[0].getbookID() << std::endl;
+	
+	std::cout << "Book 2" << std::endl;
+	std::cout << "Title: " << bookLibrary[1].getTitle() << std::endl;
+	std::cout << "Book ID: " << bookLibrary[1].getbookID() << std::endl;
+	
+	std::cout << "Book 3" << std::endl;
+	std::cout << "Title: " << bookLibrary[2].getTitle() << std::endl;
+	std::cout << "Book ID: " << bookLibrary[2].getbookID() << std::endl;
+	
+	std::cout << "Book 4" << std::endl;
+	std::cout << "Title: " << bookLibrary[3].getTitle() << std::endl;
+	std::cout << "Book ID: " << bookLibrary[3].getbookID() << std::endl;
+	
+	std::cout << "Book 5" << std::endl;
+	std::cout << "Title: " << bookLibrary[4].getTitle() << std::endl;
+	std::cout << "Book ID: " << bookLibrary[4].getbookID() << std::endl;
 	
 
 	return 0;
