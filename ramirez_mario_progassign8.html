@@ -1,0 +1,64 @@
+<script type = "text/javascript">
+
+	let sentence = prompt("Please enter a sentence"); 	//hold fullname input to be written to the file
+
+
+	let numWords = 0;		//number of words with the letter E
+	let longestWord = 0; //number of characters of longest word
+	let longestWordStart = 0; //starting index of longest word
+	let wordStart = 0; //starting index of current wordStart
+	let wordLength = 0; //length of current word
+
+	let withE = false;
+
+
+
+	for(let i=0; i < sentence.length; i++){
+		if ((sentence[i] == 'E') ||(sentence[i] == 'e' )){
+			withE = true;
+		}
+		
+		
+		if(sentence[i] == ' '){
+		
+			if(withE){
+				numWords++; //increase number of words
+				wordLength = i - wordStart; //length of current word
+				//now keep track of longest word so far
+				if(wordLength >= longestWord){
+					//if current word length is greater than longestword we saw so far
+					longestWord = wordLength;
+					longestWordStart = wordStart;
+					
+				}
+				wordStart = i+1;
+				withE = false;
+			} else {
+				wordStart= i+1;
+			}
+		}
+	}
+
+
+	if(withE){
+		numWords++; 
+		wordLength = sentence.length - wordStart; 
+		if(wordLength >= longestWord){
+			
+			longestWord = wordLength;
+			longestWordStart = wordStart;
+			
+		}
+	}
+
+	let wordE = "";
+	for(let j = longestWordStart; j < longestWordStart+longestWord; j++){
+		wordE+= sentence[j];
+	}
+
+	//print some statistics
+	alert(`This sentence has ${numWords} word(s) with the letter E .\nThe longest word with the letter E is: ${wordE}\nThe longest word with the letter E has ${longestWord} character(s)`);
+
+</script>
+
+
